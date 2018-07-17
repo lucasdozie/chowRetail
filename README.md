@@ -142,6 +142,17 @@ $ exp publish
 
 You can also use a service like [Expo's standalone builds](https://docs.expo.io/versions/latest/guides/building-standalone-apps.html) if you want to get an IPA/APK for distribution without having to build the native code yourself.
 
+### Alternative way to generate sign APK
+```
+"scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "android-apk": "npm run android-release && npm run android-signer",
+    "android-release": "cd android && ./gradlew assembleRelease",
+    "android-signer": "cd android/app/build/outputs/apk/ && jarsigner -verbose -keystore ~/.android/debug.keystore -storepass android -keypass android app-release-unsigned.apk androiddebugkey"
+  }
+```
+
 ### Ejecting from Create React Native App
 
 If you want to build and deploy your app yourself, you'll need to eject from CRNA and use Xcode and Android Studio.
