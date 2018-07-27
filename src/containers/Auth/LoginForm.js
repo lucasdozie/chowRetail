@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Animated, Image, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import Dimensions from 'Dimensions';
+import ButtonSubmit from './buttonSubmit.js';
+import UserInput from './../_Partial/UserInput.js';
 
-import UserInput from './UserInput.js';
-
-import usernameImg from './../images/username.png';
-import passwordImg from './../images/password.png';
-import eyeImg from './../images/eye_black.png';
+import usernameImg from './../../images/username.png';
+import passwordImg from './../../images/password.png';
+import eyeImg from './../../images/eye_black.png';
 
 export default class Main extends React.Component {
   constructor(props) {
@@ -34,7 +34,35 @@ export default class Main extends React.Component {
   }
 
 /*  componentDidMount(){
-
+  _handleFetchData = () => {
+    const remote_url = "http://localhost/projects/chowberry/v1.2/api/retailerProducts?retailerID=DIJF0BWTS5DVLL9N5";
+    fetch(remote_url, {
+      method: "POST",
+      headers:{
+        "Accept":"application/json",
+        "Content-Type":"application/json"
+      },
+      body: JSON.stringify({
+        "Email": '',
+        "Password": ''
+      })
+    })
+    .then((response) => response.json())
+    .then( (responseJson) => {
+      if(responseJson.success === true){
+        console.log(responseJson);
+         this.setState({
+          kq:responseJson["token"]
+        });
+        //AsyncStorage.setItem('user', res.user); //can get the value anywhere on the page
+        // then navigate to the productListing screeen
+       
+      }else{
+        alert(res.message);//failed 
+      }
+      
+    });
+  };
   }
 */  
   _onInputChange = (word) => {
@@ -64,7 +92,7 @@ export default class Main extends React.Component {
     }, 2000);
 
     setTimeout(() => {
-      Actions.secondScreen();
+      Actions.ProductScreen();
       this.setState({isLoading: false});
       this.buttonAnimated.setValue(0);
       this.growAnimated.setValue(0);
@@ -74,6 +102,7 @@ export default class Main extends React.Component {
   render() {
     return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
+        <View style={styles.inputContainer}>
             <UserInput 
               source={usernameImg}
               placeholder="Username"
@@ -95,7 +124,9 @@ export default class Main extends React.Component {
               onPress={this.showPass}>
               <Image source={eyeImg} style={styles.iconEye} />
             </TouchableOpacity>
-          </KeyboardAvoidingView>
+          </View>
+          <ButtonSubmit style={styles.submitbtn} />
+        </KeyboardAvoidingView>
     );
   }
 }
@@ -105,13 +136,22 @@ const DEVICE_HEIGHT = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+   flex: 3,
+    alignItems: 'center',
+  },
+  inputContainer: {
+   flex: 1,
+    alignItems: 'center'
+  },
+  submitbtn: {
+    flex: 2,
     alignItems: 'center',
   },
   btnEye: {
     position: 'absolute',
-    top: 55,
+    top: 70,
     right: 28,
+    zIndex: 99,
   },
   iconEye: {
     width: 25,

@@ -12,10 +12,10 @@ import {
   View,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import OtherScreen from './../containers/OtherScreen.js';
-import ProductScreen from './../containers/ProductScreen.js';
+import OtherScreen from './../OtherScreen.js';
+import ProductScreen from './../Products/Index.js';
 
-import spinner from './../images/loading.gif';
+import spinner from './../../images/loading.gif';
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 const DEVICE_HEIGHT = Dimensions.get('window').height;
@@ -119,8 +119,7 @@ const styles = StyleSheet.create({
     borderColor: '#F035E0',
     borderRadius: 100,
     alignSelf: 'center',
-    zIndex: 99,
-    backgroundColor: '#F035E0',
+    zIndex: 99
   },
   text: {
     color: 'white',

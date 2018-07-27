@@ -4,11 +4,11 @@ import { ImageBackground, StyleSheet } from 'react-native';
 import { Text } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
-import SignupTextWrapper from './../components/SignupTextWrapper.js';
-import Logo from './../components/Logo.js';
-import LoginForm from './../components/LoginForm.js';
-import ButtonSubmit from './../components/buttonSubmit.js';
-import bgSrc from './../images/wallpaper.png';
+import SignupTextWrapper from './SignupTextWrapper.js';
+import Logo from './Logo.js';
+import LoginForm from './LoginForm.js';
+//import ButtonSubmit from './buttonSubmit.js';
+import bgSrc from './../../images/wallpaper.png';
 
 export default class LoginScreen extends Component{
 	render(){
@@ -16,7 +16,6 @@ export default class LoginScreen extends Component{
 			<ImageBackground style={styles.picture} source={bgSrc}>
 				<Logo />
 				<LoginForm />
-				<ButtonSubmit />
 				<SignupTextWrapper />
 			</ImageBackground>
 		);
