@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
+//import os from 'os';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, ScrollView, TextInput, Dimensions, Picker, Platform, Image, TouchableOpacity, ImageBackground, KeyboardAvoidingView } from 'react-native';
+
 import EditForm from './../_Partial/EditProductForm';
 import { Actions } from 'react-native-router-flux';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import bgSrc from './../../images/wallpaper.png';
 import UserInput from './../_Partial/UserInput.js'
+
+
 export default class Form extends Component {
 
   constructor(props) {
@@ -22,8 +26,8 @@ export default class Form extends Component {
   }
   _goToLogin = () => {
       console.log("Go back home");
-      const const os = require('os');
-      console.log("User: "+os.userInfo());
+      //const os = require('os');
+//      console.log("User: "+os.userInfo());
       Actions.pop();
     }
 
@@ -181,6 +185,9 @@ export default class Form extends Component {
                   <Picker.Item label='option 1' value='1' />
                   <Picker.Item label='option 2' value='2' />
                 </Picker>
+            </View>
+            <View styele={styles.inputWrapper}>
+
             </View>
           </ScrollView>
 

@@ -5,6 +5,7 @@ import LoginScreen from './containers/Auth/LoginScreen.js';
 import ProductScreen from './containers/Products/Index.js';
 import ProductSingleScreen from './containers/Products/Form.js';
 import EditProductScreen from './containers/Products/Form.js';
+import imageUploadScreen from './containers/_Partial/ImageUploader.js'
 import OtherScreen from './containers/OtherScreen.js';
 
 
@@ -17,7 +18,7 @@ export default class Main extends Component {
 	          component={LoginScreen}
 	          animation='fade'
 	          hideNavBar={true}
-	          initial
+	          
 	        />
 	        <Scene key="OtherScreen"
 	          component={OtherScreen}
@@ -40,6 +41,12 @@ export default class Main extends Component {
             component={ProductSingleScreen}
             animation='fade'
             hideNavBar={true}
+          />
+          <Scene key="imageUploadScreen"
+            component={imageUploadScreen}
+            animation='fade'
+            hideNavBar={true}
+            initial
           />
 	      </Scene>
 	    </Router>
